@@ -1,0 +1,80 @@
+/* Requirements Analysis (English Description)
+ * Create a program that will allow a user to calculate
+ * how much a customer owes for the fruits they are buying.
+ * The user will be given an option to purchase apples,
+ * bananas, or mangoes.  Once the user picks one of the fruits,
+ * they will be asked how many of that fruit they would like to 
+ * purchase.  The customer will then be charged for that many 
+ * fruits.  The program should end by displaying the amount they
+ * owe for the fruits they are purchasing.  Apple cost 30 cents each.
+ * Bananas cost 40 cents each.  Mangoes cost 50 cents each.  The customer
+ * can only buy one type of fruit.  If the user enters any other fruit
+ * please give them an error message.  
+ * 
+ * Design (Algorithm)
+ * Fruit Stand
+ * 1.  Ask the user for the fruit choice
+ * 2.  Save the fruit choice
+ * 3.  If fruit choice is equal to apples, go to step 4, else go to step 9
+ * 4.  		Ask the user for the number of apples
+ * 5.		Save the number of apples
+ * 6.		Calculate the cost of the apples
+ * 7.		Print the cost of the apples
+ * 8.		Go to step 23
+ * 9.  Else if fruit choice is equal to bananas, go to step 10, else go to step 15
+ * 10. 		Ask the user for the number of bananas
+ * 11.		Save the number of bananas
+ * 12.		Calculate the cost of the bananas
+ * 13.		Print the cost of the bananas
+ * 14.		Go to step 23
+ * 15. Else if fruit choice is equal to mangoes, go to step 16
+ * 16.		Ask the user for the number of mangoes
+ * 17.		Save the number of mangoes
+ * 18.		Calculate the cost of the mangoes
+ * 19.		Print the cost of the mangoes
+ * 20.		Go to step 23
+ * 21. Else if the fruit choice is equal to any other fruit, go to step 22
+ * 22. 		Print error message
+ * 23. END
+ */
+
+
+//Implementation
+import java.util.Scanner;
+public class FruitStand {
+	public static void main(String[] args) {
+		Scanner keyboard = new Scanner(System.in);
+		String fruitChoice;
+		do {
+			System.out.println("Would you like to apples, bananas, or mangoes? Please choose only.");
+			fruitChoice = keyboard.nextLine();
+		
+			if(fruitChoice.equals("apples")) {
+				System.out.println("How many apples do you want to buy?");
+				int numberOfApples = keyboard.nextInt();
+				final double COST_OF_AN_APPLE = .30;
+				double costOfApples = (double)numberOfApples * COST_OF_AN_APPLE;
+				System.out.println("Cost of Apples: $" + costOfApples);
+			}
+			else if(fruitChoice.equals("bananas")) {
+				System.out.println("How many bananas do you want to buy?");
+				int numberOfBananas = keyboard.nextInt();
+				final double COST_OF_A_BANANA = .40;
+				double costOfBananas = (double)numberOfBananas * COST_OF_A_BANANA;
+				System.out.println("Cost of Bananas: $" + costOfBananas);
+			}
+			else if(fruitChoice.equals("mangoes")) {
+				System.out.println("How many mangoes do you want to buy?");
+				int numberOfMangoes = keyboard.nextInt();
+				final double COST_OF_A_MANGO = .50;
+				double costOfMangoes = (double)numberOfMangoes * COST_OF_A_MANGO;
+				System.out.println("Cost of Mangoes: $" + costOfMangoes);
+			}
+			else {
+				System.out.println("We do not sell that type of fruit!");
+			}
+		}while(!fruitChoice.equals("apples") && !fruitChoice.equals("bananas") && !fruitChoice.equals("mangoes"));
+		
+		System.out.println("Thank you for visiting our fruit stand!");
+	}
+}
